@@ -71,16 +71,8 @@ public class SalaCinematografica {
 		return listaSpettatori;
 	}
 
-	public void setListaSpettatori(Spettatore[] listaSpettatori) {
-		this.listaSpettatori = listaSpettatori;
-	}
-
 	public int getSpettatoriAttuali() {
 		return spettatoriAttuali;
-	}
-
-	public void setSpettatoriAttuali(int spettatoriAttuali) {
-		this.spettatoriAttuali = spettatoriAttuali;
 	}
 
 	public int getLimiteSpettatori() {

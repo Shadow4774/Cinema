@@ -1,6 +1,8 @@
 package it.enaip.cinema;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Cinema {
 
@@ -37,5 +39,9 @@ public class Cinema {
 			incasso += salaCinematografica.calcolaIncasso();
 		}
 		return incasso;
+	}
+	
+	public List<SalaCinematografica> getSale() {
+		return new ArrayList<>(listaSale.values());
 	}
 }

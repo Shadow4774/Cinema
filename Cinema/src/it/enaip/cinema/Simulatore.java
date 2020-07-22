@@ -6,22 +6,25 @@ import it.enaip.cinema.Film.eFilmGenere;
 
 public class Simulatore {
 	
-	public static void simulate() {
-		Cinema cinema = new Cinema();
+	public static void simulate(boolean talk, Cinema cinemaIn) {
+		Cinema cinema = cinemaIn;
 		
-		System.out.println("Inizio simulazione - creazione sale");
+		if(cinema == null)
+			cinema = new Cinema();
+		
+		if(talk) System.out.println("Inizio simulazione - creazione sale");
 		
 		cinema.addSala(new SalaCinematografica(15, "Sala 1"));
 		cinema.addSala(new SalaCinematografica(20, "Sala 2"));
 		cinema.addSala(new SalaCinematografica(2, "Sala 3"));
 		
-		System.out.println("Sale create - creazione ed assegnazione film per sala");
+		if(talk) System.out.println("Sale create - creazione ed assegnazione film per sala");
 		
 		cinema.setFilmPerSala(new Film("Star wars 1", "George Lucas", "George Lucas", 120, eFilmGenere.SCIFI), "Sala 1");
 		cinema.setFilmPerSala(new Film("Titolo 2", "Aut 2", "Prod 2", 90, eFilmGenere.HORROR), "Sala 2");
 		cinema.setFilmPerSala(new Film("Titolo 3", "Aut 3", "Prod 2", 77, eFilmGenere.STORICO), "Sala 3");
 		
-		System.out.println("Film assegnati - creazione ed accesso spettatori");
+		if(talk) System.out.println("Film assegnati - creazione ed accesso spettatori");
 		
 		try {	//100
 			cinema.getSala("Sala 3").consentiIngresso(new Spettatore("Id 1", "Gianni", "Pinotto", LocalDate.of(1991, 10, 25)));
@@ -60,18 +63,18 @@ public class Simulatore {
 			System.err.println(e.getMessage());
 		}
 		
-		System.out.println("Spettatori assegnati - calcolo incassi");
+		if(talk) System.out.println("Spettatori assegnati - calcolo incassi");
 		
-		System.out.println("Incassi: " + cinema.getIncassoTotale());
+		if(talk) System.out.println("Incassi: " + cinema.getIncassoTotale());
 		
-		System.out.println("Incasso max calcolato - Svuoto sala 2");
+		if(talk) System.out.println("Incasso max calcolato - Svuoto sala 2");
 		
 		cinema.getSala("Sala 2").svuotaSala();
 		
-		System.out.println("Sala 2 Svuotata - calcolo nuovi incassi");
+		if(talk) System.out.println("Sala 2 Svuotata - calcolo nuovi incassi");
 		
-		System.out.println("Incassi: " + cinema.getIncassoTotale());
+		if(talk) System.out.println("Incassi: " + cinema.getIncassoTotale());
 		
-		System.out.println("Nuovi incassi calcolati - Fine simulazione");
+		if(talk) System.out.println("Nuovi incassi calcolati - Fine simulazione");
 	}
 }

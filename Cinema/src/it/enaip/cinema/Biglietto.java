@@ -43,15 +43,7 @@ public class Biglietto {
 		return prezzo;
 	}
 
-	public void setPrezzo(double prezzo) {
-		this.prezzo = prezzo;
-	}
-
 	public Spettatore getSpettatore() {
 		return spettatore;
-	}
-
-	public void setSpettatore(Spettatore spettatore) {
-		this.spettatore = spettatore;
 	}
 }

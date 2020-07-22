@@ -19,17 +19,7 @@ public class Spettatore {
 	public boolean minorenne() {
 		return (getAge() < 18);
 	}
-	/*/
-	public int getPercentualeSconto() {
-		int sconto = 0, eta = getAge();
-		if(eta > 70)
-			sconto = 10;
-		if (eta < 5)
-			sconto = 50;
-		
-		return sconto;
-	}
-	//*/
+	
 	public int getAge() {
 		LocalDate now = LocalDate.now();
 		int age = now.getYear() - dataNascita.getYear();
