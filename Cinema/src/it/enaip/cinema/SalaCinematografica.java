@@ -66,4 +66,36 @@ public class SalaCinematografica {
 		}
 		return incasso;
 	}
+
+	public Spettatore[] getListaSpettatori() {
+		return listaSpettatori;
+	}
+
+	public void setListaSpettatori(Spettatore[] listaSpettatori) {
+		this.listaSpettatori = listaSpettatori;
+	}
+
+	public int getSpettatoriAttuali() {
+		return spettatoriAttuali;
+	}
+
+	public void setSpettatoriAttuali(int spettatoriAttuali) {
+		this.spettatoriAttuali = spettatoriAttuali;
+	}
+
+	public int getLimiteSpettatori() {
+		return limiteSpettatori;
+	}
+
+	public void setLimiteSpettatori(int limiteSpettatori) {
+		this.limiteSpettatori = limiteSpettatori;
+	}
+
+	public String getIdSala() {
+		return idSala;
+	}
+
+	public void setIdSala(String idSala) {
+		this.idSala = idSala;
+	}
 }

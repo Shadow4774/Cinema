@@ -2,9 +2,9 @@ package it.enaip.cinema;
 
 public class Biglietto {
 
-	private static final int SCONTO_ANZIANI = 10;
-	private static final int SCONTO_BAMBINI = 50;
-	private static final int PREZZO_FISSO = 100;
+	private static final double SCONTO_ANZIANI = 10.0;
+	private static final double SCONTO_BAMBINI = 50.0;
+	private static final double PREZZO_FISSO = 100.0;
 	
 	private int posizione;
 	private double prezzo;
@@ -24,11 +24,11 @@ public class Biglietto {
 	}
 	
 	private void applicaRiduzioneAnziani() {
-		prezzo *= (100 - SCONTO_ANZIANI);
+		prezzo *= (100.0 - SCONTO_ANZIANI) / 100.0;
 	}
 	
 	private void calcolaRiduzioneBambini() {
-		prezzo *= (100 - SCONTO_BAMBINI);
+		prezzo *= (100.0 - SCONTO_BAMBINI) / 100.0;
 	}
 
 	public int getPosizione() {

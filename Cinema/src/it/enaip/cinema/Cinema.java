@@ -1,23 +1,39 @@
 package it.enaip.cinema;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Cinema {
 
-	private List<SalaCinematografica> listaSale;
+	private HashMap<String, SalaCinematografica> listaSale;
 	
 	public Cinema() {
-		listaSale = new ArrayList<>();
+		listaSale = new HashMap<>();
 	}
 	
 	public void addSala(SalaCinematografica sala) {
-		listaSale.add(sala);
+		String id = sala.getIdSala();
+		listaSale.put(id, sala);
+	}
+	
+	public void setFilmPerSala(Film film, String idSala) {
+		if(listaSale.containsKey(idSala)) {
+			SalaCinematografica tempSala = listaSale.get(idSala);
+			tempSala.setFilm(film);
+		}
+	}
+	
+	public SalaCinematografica getSala(String idSala) {
+		SalaCinematografica sala = null;
+		
+		if(listaSale.containsKey(idSala))
+			sala = listaSale.get(idSala);
+		
+		return sala;
 	}
 	
 	public double getIncassoTotale() {
 		double incasso = 0;
-		for (SalaCinematografica salaCinematografica : listaSale) {
+		for (SalaCinematografica salaCinematografica : listaSale.values()) {
 			incasso += salaCinematografica.calcolaIncasso();
 		}
 		return incasso;
