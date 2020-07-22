@@ -50,18 +50,18 @@ public class ControlServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = request.getParameter("op");
 		
 		switch (op) {
 		case "addSala":
 			addSala(request, response);
-			//TODO: forward main menu
+			forward(request, response, "/index.html");
 			break;
 			
 		case "svuotaSala":
 			svuotaSala(request, response);
-			//TODO: forward main menu
+			forward(request, response, "/index.html");
 			break;
 			
 		case "incassi":
@@ -71,12 +71,12 @@ public class ControlServlet extends HttpServlet {
 			
 		case "addSpettatore":
 			addSpettatore(request, response);
-			//TODO: forward main menu
+			forward(request, response, "/index.html");
 			break;
 			
 		case "simulate":
 			Simulatore.simulate(false, getCinema());
-			//TODO: forward main menu
+			forward(request, response, "/index.html");
 			break;
 			
 		case "listaSale":
@@ -131,6 +131,6 @@ public class ControlServlet extends HttpServlet {
 	
 	private Cinema getCinema() {
 		//TODO: Dove lo tengo il cinema??
-		return null;
+		return CinemaSingleton.getInstance();
 	}
 }
